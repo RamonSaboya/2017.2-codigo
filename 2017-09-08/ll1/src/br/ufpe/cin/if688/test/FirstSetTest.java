@@ -66,9 +66,9 @@ public class FirstSetTest extends TestCase {
 			expected.put(nt, new HashSet<GeneralSymbol>());
 		}
 		
-		expected.get(C).add(new ConcreteSymbol(d));
-		expected.get(B).add(new ConcreteSymbol(c));
-		expected.get(start).add(new ConcreteSymbol(a));
+		expected.get(C).add(d);
+		expected.get(B).add(c);
+		expected.get(start).add(a);
 		
 		assertEquals(first, expected);
 	
@@ -138,13 +138,13 @@ public class FirstSetTest extends TestCase {
 		}
 		
 		expected.get(K).add(SpecialSymbol.EPSILON);
-		expected.get(K).add(new ConcreteSymbol(b));
+		expected.get(K).add(b);
 		
-		expected.get(S).add(new ConcreteSymbol(a));
+		expected.get(S).add(a);
 		
-		expected.get(B).add(new ConcreteSymbol(d));
+		expected.get(B).add(d);
 		
-		expected.get(A).add(new ConcreteSymbol(b));
+		expected.get(A).add(b);
 		
 		assertEquals(first, expected);		
 	}
