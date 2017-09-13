@@ -139,10 +139,10 @@ public class FollowSetTest extends TestCase{
 			expected.put(nt, new HashSet<GeneralSymbol>());
 		}
 		
-		expected.get(K).add(new ConcreteSymbol(d));
+		expected.get(K).add(d);
 		expected.get(S).add(SpecialSymbol.EOF);
-		expected.get(B).add(new ConcreteSymbol(e));
-		expected.get(A).add(new ConcreteSymbol(d));
+		expected.get(B).add(e);
+		expected.get(A).add(d);
 		
 		assertEquals(follow,expected);
 	}
