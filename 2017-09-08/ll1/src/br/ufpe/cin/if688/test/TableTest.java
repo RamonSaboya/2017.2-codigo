@@ -60,9 +60,9 @@ public class TableTest extends TestCase{
 		Map<LL1Key, List<GeneralSymbol>> table = Table.createTable(g);
 		Map<LL1Key, List<GeneralSymbol>> expected = new HashMap<LL1Key, List<GeneralSymbol>>();
 		
-		LL1Key Aa = (LL1Key)table.keySet().toArray()[0];
-		LL1Key Bc = (LL1Key)table.keySet().toArray()[1];
-		LL1Key Cd = (LL1Key)table.keySet().toArray()[2];
+		LL1Key Aa = searchTable(table, start, a);
+		LL1Key Bc = searchTable(table, B, c);
+		LL1Key Cd = searchTable(table, C, d);
 		
 		ArrayList<GeneralSymbol> aB = new ArrayList<GeneralSymbol>();
 		aB.add(a);
@@ -141,11 +141,11 @@ public class TableTest extends TestCase{
 		Map<LL1Key, List<GeneralSymbol>> table = Table.createTable(g);
 		Map<LL1Key, List<GeneralSymbol>> expected = new HashMap<LL1Key, List<GeneralSymbol>>();
 		
-		LL1Key Ab = (LL1Key)table.keySet().toArray()[0];
-		LL1Key Sa = (LL1Key)table.keySet().toArray()[1];
-		LL1Key Kd = (LL1Key)table.keySet().toArray()[2];
-		LL1Key Kb = (LL1Key)table.keySet().toArray()[3];
-		LL1Key Bd = (LL1Key)table.keySet().toArray()[4];
+		LL1Key Ab = searchTable(table, A, b);
+		LL1Key Sa = searchTable(table, S, a);
+		LL1Key Kd = searchTable(table, K, d);
+		LL1Key Kb = searchTable(table, K, b);
+		LL1Key Bd = searchTable(table, B, d);
 		
 		List<GeneralSymbol> bK = new ArrayList<GeneralSymbol>();
 		bK.add(b);
@@ -175,6 +175,18 @@ public class TableTest extends TestCase{
 		expected.put(Bd, d_);
 		
 		assertEquals(table, expected);	
+	}
+	
+	private LL1Key searchTable(Map<LL1Key, List<GeneralSymbol>> table, Nonterminal nonterminal, GeneralSymbol symbol) {
+		LL1Key key = new LL1Key(nonterminal, symbol);
+		
+		for(LL1Key tableKey : table.keySet()) {
+			if(key.equals(tableKey)) {
+				return tableKey;
+			}
+		}
+		
+		return null;
 	}
 
 }
